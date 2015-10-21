@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/plugins/GdbPrint">
+    <file>GdbPrint.png</file>
+  </qresource>
+</RCC>
