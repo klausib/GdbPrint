@@ -178,10 +178,16 @@ class GdbPrint():
         i = 0
         self.textinhalt = ''
 
+        # Muss ausgeschaltet werden vor der Aktualisierung
+        # sonst gibts Probleme, keine Ahnung wieso
+        self.eig_frm.tblEig.setSortingEnabled(False)
+
 
         # den Inhalt der Tabelle vor dem Neubefüllen löschen
         for i in range(self.eig_frm.tblEig.rowCount()):
             self.eig_frm.tblEig.removeRow(0)    # immer nur die oberste löschen weil die Lines von unten nachrücken!!
+
+
 
         # Eigenschafte der Tabelle setzen (auch wenn sie schon vorhanden ist)
         self.eig_frm.tblEig.setHorizontalHeaderLabels(['Eigentümer'.decode('utf8'), 'Anteil', 'Fläche'.decode('utf8')])
@@ -194,6 +200,7 @@ class GdbPrint():
         for eig in self.auslesen(baReply):  # self auslesen gibt eine Liste mit objekten vom typ rueckgabe zurück
                                             # (eigentümer, anteil fläche)
 
+            #iti = QtGui.QTableWidgetItem()
             iti = QtGui.QTableWidgetItem()
 
             # spalte 1
@@ -212,7 +219,9 @@ class GdbPrint():
             self.eig_frm.tblEig.setItem(i,2,iti)
 
             self.eig_frm.tblEig.selectRow(i)    # alle werden vorab auf ausgewählt gestellt
+
             i = i + 1
+
 
         # noch etwas Kosmetik
         self.eig_frm.tblEig.resizeColumnsToContents()
@@ -229,6 +238,8 @@ class GdbPrint():
         self.eig_frm.tblEig.setFocus()
         self.eig_frm.tblEig.setSelectionMode(3) # standard selections methode für die interaktive Auswahl
 
+
+        self.eig_frm.tblEig.setSortingEnabled(True)     # Sorting wieder aktivieren
 
 
     ####################################################################
@@ -288,6 +299,7 @@ class GdbPrint():
         area_t = []
         # nun unsere rueck-objektliste befüllen
         # alle Zeilen der HTML TAbelle durchgehen
+        #f = open('d:\dodl.txt','w')
         while i < anz_zeilen:
             # unsere Strukturvariable
             rueck = rueckgabe()
@@ -308,7 +320,9 @@ class GdbPrint():
             # rueckobjekt der rückgabeliste hinzufügen
             rueckliste.append(rueck)
             i = i + 1
-
+            #debug output
+            #f.write(elem_daten[pos_e].toPlainText().replace('\\n','').encode('latin1') + ' ' + elem_daten[pos_a].toPlainText().replace('\\n','').encode('latin1') + ' ' + elem_daten[pos_f].toPlainText().replace('\\n','').encode('latin1') +'\n')
+        #f.close()
 
         return rueckliste
 
@@ -402,11 +416,13 @@ class GdbPrint():
         for index in list_mod_index:
             if  self.indexliste.count(index) == 0:    # Index wird in der Indexliste nicht gefunden -> Inhalt ist nicht schon angezeigt - Verhindern von Mehrfachbeschriftung mit gleichem Inhalt!!
                 if erstezeile:
-                    self.textinhalt = self.textinhalt + self.eig_frm.tblEig.item(index.row(), 0).text() + ' - ' + self.eig_frm.tblEig.item(index.row(), 1).text()
-                    erstezeile = False
+                    if not (self.eig_frm.tblEig.item(index.row(), 0) == None or self.eig_frm.tblEig.item(index.row(), 1) == None):
+                        self.textinhalt = self.textinhalt + self.eig_frm.tblEig.item(index.row(), 0).text() + ' - ' + self.eig_frm.tblEig.item(index.row(), 1).text()
+                        erstezeile = False
                 else:
-                    self.textinhalt = self.textinhalt + '\n'
-                    self.textinhalt = self.textinhalt + self.eig_frm.tblEig.item(index.row(), 0).text() + ' - ' + self.eig_frm.tblEig.item(index.row(), 1).text()
+                    if not (self.eig_frm.tblEig.item(index.row(), 0) == None or self.eig_frm.tblEig.item(index.row(), 1) == None):
+                        self.textinhalt = self.textinhalt + '\n'
+                        self.textinhalt = self.textinhalt + self.eig_frm.tblEig.item(index.row(), 0).text() + ' - ' + self.eig_frm.tblEig.item(index.row(), 1).text()
                 self.indexliste.append(index)   # index ist in die BLase aufgenommen und wird so als angeziegt registriert
 
 

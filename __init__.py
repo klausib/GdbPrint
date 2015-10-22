@@ -16,7 +16,7 @@ def icon():
 	return "GdbPrint.png"
 
 def version():
-    return "1.0.0"
+    return "1.0.1"
 
 def qgisMinimumVersion():
   return "2.4"
