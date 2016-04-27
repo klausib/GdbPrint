@@ -146,7 +146,7 @@ class GdbPrint():
         # notwendigen felder überhaupt vorhanden sind
         # bei den angeklickten features
         for list in liste:
-                if list.mFeature.fields().indexFromName('KG') < 0 or list.mFeature.fields().indexFromName('GNR') < 0:
+                if (list.mFeature.fields().indexFromName('kg') < 0 or list.mFeature.fields().indexFromName('gnr') < 0) and (list.mFeature.fields().indexFromName('KG') < 0 or list.mFeature.fields().indexFromName('GNR') < 0):
                     QtGui.QMessageBox.information(None, "Hinweis", 'Eines der benötigten Felder KG und GNR nicht gefunden.\nBitte prüfen ob ein Grundstückslayer ausgewählt ist!'.decode('utf8'))
                     return
                 # und ob der Klickpunkt innerhalb des
@@ -154,8 +154,8 @@ class GdbPrint():
                 # etwas mehr Features identifiziert werden. Aber nur eines enthält
                 # den tatsächlichen Klickpunkt!
                 if list.mFeature.geometry().contains(klickpunkt):
-                    self.kg = list.mFeature['KG']
-                    self.gnr = list.mFeature['GNR']
+                    self.kg = list.mFeature['kg']
+                    self.gnr = list.mFeature['gnr']
                     break
 
 
