@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from PyQt4.QtCore import *
-import os
+#from PyQt4.QtCore import *
+#import os
 #import resources
-
+#from __future__ import absolute_import
 
 
 def name():
@@ -16,12 +16,12 @@ def icon():
 	return "GdbPrint.png"
 
 def version():
-    return "1.0.1"
+    return "1.1"
 
 def qgisMinimumVersion():
-  return "2.4"
+  return "3.2"
 
 
 def classFactory(iface):
-    from GdbPrint import GdbPrint
+    from .GdbPrint import GdbPrint
     return GdbPrint(iface)

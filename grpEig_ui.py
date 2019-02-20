@@ -2,50 +2,42 @@
 
 # Form implementation generated from reading ui file 'grpEig_ui.ui'
 #
-# Created: Mon Oct 12 09:28:54 2015
-#      by: PyQt4 UI code generator 4.8.4
+# Created by: PyQt5 UI code generator 5.11.2
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt4 import QtCore, QtGui
-
-try:
-    _fromUtf8 = QtCore.QString.fromUtf8
-except AttributeError:
-    _fromUtf8 = lambda s: s
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_frmEig(object):
     def setupUi(self, frmEig):
-        frmEig.setObjectName(_fromUtf8("frmEig"))
+        frmEig.setObjectName("frmEig")
         frmEig.resize(676, 285)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(frmEig.sizePolicy().hasHeightForWidth())
         frmEig.setSizePolicy(sizePolicy)
-        self.gridLayout = QtGui.QGridLayout(frmEig)
-        self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.tblEig = QtGui.QTableWidget(frmEig)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
+        self.gridLayout = QtWidgets.QGridLayout(frmEig)
+        self.gridLayout.setObjectName("gridLayout")
+        self.tblEig = QtWidgets.QTableWidget(frmEig)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.tblEig.sizePolicy().hasHeightForWidth())
         self.tblEig.setSizePolicy(sizePolicy)
         self.tblEig.setRowCount(0)
         self.tblEig.setColumnCount(3)
-        self.tblEig.setObjectName(_fromUtf8("tblEig"))
-        self.tblEig.setColumnCount(3)
-        self.tblEig.setRowCount(0)
+        self.tblEig.setObjectName("tblEig")
         self.tblEig.horizontalHeader().setVisible(True)
         self.tblEig.horizontalHeader().setCascadingSectionResizes(False)
         self.tblEig.horizontalHeader().setStretchLastSection(False)
         self.tblEig.verticalHeader().setVisible(True)
         self.tblEig.verticalHeader().setDefaultSectionSize(30)
         self.gridLayout.addWidget(self.tblEig, 0, 0, 1, 1)
-        self.verticalLayout = QtGui.QVBoxLayout()
-        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-        self.btnSel = QtGui.QPushButton(frmEig)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.btnSel = QtWidgets.QPushButton(frmEig)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btnSel.sizePolicy().hasHeightForWidth())
@@ -53,12 +45,12 @@ class Ui_frmEig(object):
         self.btnSel.setMinimumSize(QtCore.QSize(75, 110))
         self.btnSel.setCheckable(False)
         self.btnSel.setChecked(False)
-        self.btnSel.setObjectName(_fromUtf8("btnSel"))
+        self.btnSel.setObjectName("btnSel")
         self.verticalLayout.addWidget(self.btnSel)
-        spacerItem = QtGui.QSpacerItem(20, 20, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout.addItem(spacerItem)
-        self.btnOK = QtGui.QPushButton(frmEig)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
+        self.btnOK = QtWidgets.QPushButton(frmEig)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btnOK.sizePolicy().hasHeightForWidth())
@@ -66,13 +58,13 @@ class Ui_frmEig(object):
         self.btnOK.setMinimumSize(QtCore.QSize(75, 110))
         font = QtGui.QFont()
         font.setPointSize(8)
-        font.setWeight(75)
-        font.setUnderline(False)
         font.setBold(True)
+        font.setUnderline(False)
+        font.setWeight(75)
         self.btnOK.setFont(font)
-        self.btnOK.setObjectName(_fromUtf8("btnOK"))
+        self.btnOK.setObjectName("btnOK")
         self.verticalLayout.addWidget(self.btnOK)
-        spacerItem1 = QtGui.QSpacerItem(20, 1, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 1, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem1)
         self.gridLayout.addLayout(self.verticalLayout, 0, 1, 1, 1)
 
@@ -80,13 +72,14 @@ class Ui_frmEig(object):
         QtCore.QMetaObject.connectSlotsByName(frmEig)
 
     def retranslateUi(self, frmEig):
-        frmEig.setWindowTitle(QtGui.QApplication.translate("frmEig", "GDB-Print", None, QtGui.QApplication.UnicodeUTF8))
+        _translate = QtCore.QCoreApplication.translate
+        frmEig.setWindowTitle(_translate("frmEig", "GDB-Print"))
         self.tblEig.setSortingEnabled(True)
-        self.btnSel.setText(QtGui.QApplication.translate("frmEig", "Alles \n"
+        self.btnSel.setText(_translate("frmEig", "Alles \n"
 " auswählen\n"
 "/\n"
 "Auswahl\n"
-"löschen", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnOK.setText(QtGui.QApplication.translate("frmEig", "Karte\n"
-"beschriften", None, QtGui.QApplication.UnicodeUTF8))
+"löschen"))
+        self.btnOK.setText(_translate("frmEig", "Karte\n"
+"beschriften"))
 
